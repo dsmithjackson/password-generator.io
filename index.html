@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Generate Password</h1>
+        <div>
+            <div>
+                <button>Generate Password</button>
+            </div>
+            <div>
+                <h2>Choose character types</h2>
+                <p><input name='lowercase' type='checkbox'/><label for='lowercase'>Lowercase</label></p>
+                <p><input name='uppercase' type='checkbox'/><label for='uppercase'>Uppercase</label></p>
+                <p><input name='numbers' type='checkbox'/><label for='numbers'>Numbers</label></p>
+                <p><input name='special' type='checkbox'/><label for='special'>Special Characters</label></p>
+                <button>Next</button>
+            </div>
+            <div>
+                <div>
+                    <button>Higher</button>
+                    <input min="8" max="128" type='number'>
+                    <button>Lower</button>
+                </div>
+                <button>Generate!</button>
+            </div>
+            <div>
+                <span>PASSWORD GOES HERE!!</span>
+            </div>
+        </div>
+    </div>
+    
+    <script type='text/javascript' src='password_functions.js'></script>
+</body>
+
+</html>
