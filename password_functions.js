@@ -1,9 +1,8 @@
 let chosenLength = 8;
-let useSmall = true;
-let useLarge = true;
-let useSpecial = true;
-let userNumbers = true;
-
+let useSmall = false;
+let useLarge = false;
+let useSpecial = false;
+let useNumbers = false;
 
 
 
@@ -12,6 +11,8 @@ const smallLetter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 const largeLetter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
 const specialChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '=', '<', '>', '/', '|', '~', '?', ];
 const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ];
+
+
 
 const LETTERS = {
     SMALLLETTER: 0,
@@ -36,12 +37,13 @@ function pickType() {
     if(useSpecial){
         letterTypes.push(LETTERS.SPECIALCHAR);
     }
-    if(useNumber){
+    if(useNumbers){
         letterTypes.push(LETTERS.NUMBERS);
     }
     
     let selection = randomIndex(letterTypes)
-    return selection;
+    
+    return letterTypes[selection];
 }
 
 function pickLetter(type) {
@@ -76,12 +78,36 @@ function validateLength() {
     }
 }
 
-function startPasswordGeneration() {
-    useSmall = prompt('Use Lowercase', true);
-    useLarge = prompt('Use Uppercase', true);
-    useNumbers = prompt('Use Numbers', true);
-    useSpecial = prompt('Use Special', true);
-    validateLength();
+function startPasswordGeneration(form) {
+    window.myForm = form;
+    if (form.lowercase.checked){
+        useSmall = true;
+    } else {
+        useSmall = false;
+    }
+    if (form.uppercase.checked){
+        useLarge = true;
+    } else {
+        useLarge = false;
+    }
+    if (form.numbers.checked){
+        useNumbers = true;
+    } else {
+        useNumbers = false;
+    }
+    if (form.special.checked){
+        useSpecial = true;
+    } else {
+        useSpecial = false;
+    }
+    if (form.length.value) {
+        chosenLength = form.length.value;
+    } else {
+        chosenLength = 8;
+    }
+
+ createPassword();
+    //creat();
 }
 
 //document.getElementById("clickMe").onclick = startPasswordGeneration;
