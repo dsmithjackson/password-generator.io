@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <input id="clickMe" type="button" value="Generate Password" onclick="startPasswordGeneration();" />
 </head>
 
 <body>
@@ -14,20 +15,18 @@
             <div>
                 <button>Generate Password</button>
             </div>
-            <div>
+            <form>
+                <ul>
                 <h2>Choose character types</h2>
-                <p><input name='lowercase' type='checkbox'/><label for='lowercase'>Lowercase</label></p>
-                <p><input name='uppercase' type='checkbox'/><label for='uppercase'>Uppercase</label></p>
-                <p><input name='numbers' type='checkbox'/><label for='numbers'>Numbers</label></p>
-                <p><input name='special' type='checkbox'/><label for='special'>Special Characters</label></p>
-                <button>Next</button>
-            </div>
+                <li><input name='lowercase' type='checkbox'/><label for='lowercase'>Lowercase</label></li>
+                <li><input name='uppercase' type='checkbox'/><label for='uppercase'>Uppercase</label></li>
+                <li><input name='numbers' type='checkbox'/><label for='numbers'>Numbers</label></li>
+                <li><input name='special' type='checkbox'/><label for='special'>Special Characters</label></li>
+                <li><input name = 'length' type="text"/><label for='length'>Length</label></li>
+                </ul>
+            </form>
             <div>
-                <div>
-                    <button>Higher</button>
-                    <input min="8" max="128" type='number'>
-                    <button>Lower</button>
-                </div>
+                
                 <button>Generate!</button>
             </div>
             <div>

@@ -25,7 +25,21 @@ function randomIndex(array) {
 }
 
 function pickType() {
-    let letterTypes = Object.keys(LETTERS);
+    let letterTypes = [];
+    
+    if(useLarge) {
+        letterTypes.push(LETTERS.LARGELETTER);
+    }
+    if(useSmall){
+        letterTypes.push(LETTERS.SMALLLETTER);
+    }
+    if(useSpecial){
+        letterTypes.push(LETTERS.SPECIALCHAR);
+    }
+    if(useNumber){
+        letterTypes.push(LETTERS.NUMBERS);
+    }
+    
     let selection = randomIndex(letterTypes)
     return selection;
 }
@@ -53,7 +67,7 @@ function createPassword() {
     console.log(passwordString);
 }
 
-
+// This function shows the prompt for length and validates it
 function validateLength() {
     chosenLength = prompt("Length?", 8);
     if (chosenLength < 8 || chosenLength > 128) {
@@ -69,3 +83,5 @@ function startPasswordGeneration() {
     useSpecial = prompt('Use Special', true);
     validateLength();
 }
+
+//document.getElementById("clickMe").onclick = startPasswordGeneration;
