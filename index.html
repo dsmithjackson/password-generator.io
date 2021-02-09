@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Document</title>
 </head>
 
@@ -15,20 +16,20 @@
                 <ul>
                 <h2>Choose character types</h2>
                 <fieldset name='letterOption'>
-                <li><input name='lowercase' type='checkbox'/><label for='lowercase'>Lowercase</label></li>
-                <li><input name='uppercase' type='checkbox'/><label for='uppercase'>Uppercase</label></li>
-                <li><input name='numbers' type='checkbox'/><label for='numbers'>Numbers</label></li>
-                <li><input name='special' type='checkbox'/><label for='special'>Special Characters</label></li>
+                <li><input class='lettercheck' name='lowercase' type='checkbox'/><label for='lowercase'>Lowercase</label></li>
+                <li><input class='lettercheck' name='uppercase' type='checkbox'/><label for='uppercase'>Uppercase</label></li>
+                <li><input class='lettercheck' name='numbers' type='checkbox'/><label for='numbers'>Numbers</label></li>
+                <li><input class='lettercheck' name='special' type='checkbox'/><label for='special'>Special Characters</label></li>
                 </fieldset>
-                <li><input name = 'length' type='number'/><label for='length'>Length</label></li>
+                <li><input placeholder='8 is default' name='length' type='number' min="8" max="128"><label for='length'>Length</label></li>
 
                 </ul>
-                <button>Generate!</button>
+                <button class='btn-primary btn'>Generate!</button>
 
             </form>
 
             <div>
-                <span>PASSWORD GOES HERE!!</span>
+                <span id="password">createPassword</span>
             </div>
         </div>
     </div>
@@ -37,3 +38,4 @@
 </body>
 
 </html>
+

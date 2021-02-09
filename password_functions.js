@@ -66,7 +66,7 @@ function createPassword() {
     for (let passwordIndex = 0; passwordIndex < chosenLength; passwordIndex++) {
         passwordString = `${passwordString}${pickLetter(pickType())}`;
     }
-    console.log(passwordString);
+    document.getElementById("password").innerHTML = passwordString;
 }
 
 // This function shows the prompt for length and validates it
@@ -79,34 +79,62 @@ function validateLength() {
 }
 
 function startPasswordGeneration(form) {
-    window.myForm = form;
-    if (form.lowercase.checked){
-        useSmall = true;
-    } else {
-        useSmall = false;
-    }
-    if (form.uppercase.checked){
-        useLarge = true;
-    } else {
-        useLarge = false;
-    }
-    if (form.numbers.checked){
-        useNumbers = true;
-    } else {
-        useNumbers = false;
-    }
-    if (form.special.checked){
-        useSpecial = true;
-    } else {
-        useSpecial = false;
-    }
-    if (form.length.value) {
-        chosenLength = form.length.value;
-    } else {
-        chosenLength = 8;
+    var checkboxElements = document.getElementsByClassName('lettercheck')
+    var issomethingchecked = false;
+
+    for (var i = 0; i < checkboxElements.length; i++) {
+
+        if (checkboxElements[i].type.toLowerCase() == 'checkbox') {
+
+            if (checkboxElements[i].checked == true) {
+                issomethingchecked = true;
+            }
+        }
     }
 
- createPassword();
+    if (issomethingchecked === true) {
+        // Continue with submiting the form
+        console.log("Something Checked");
+        
+        window.myForm = form;
+        if (form.lowercase.checked) {
+            useSmall = true;
+        } else {
+            useSmall = false;
+        }
+        if (form.uppercase.checked) {
+            useLarge = true;
+        } else {
+            useLarge = false;
+        }
+        if (form.numbers.checked) {
+            useNumbers = true;
+        } else {
+            useNumbers = false;
+        }
+        if (form.special.checked) {
+            useSpecial = true;
+        } else {
+            useSpecial = false;
+        }
+        if (form.length.value) {
+            chosenLength = form.length.value;
+        } else {
+            chosenLength = 8;
+        }
+    createPassword();
+
+    
+    } else {
+        console.log("Nothing Checked");
+
+        document.getElementById("password").innerHTML = "You have to check at least one checkbox";
+
+    }
+
+
+
+    
     //creat();
 }
 
